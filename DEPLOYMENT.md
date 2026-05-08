@@ -13,18 +13,20 @@ This project is prepared for user-testing deployment with:
 2. Add a PostgreSQL database to the project.
 3. Add a new service from the GitHub repository.
 4. Set the service root directory to `/backend`.
-5. Confirm the start command:
+5. Keep the service on the Dockerfile builder. The repo's `backend/railway.json` sets this explicitly and clears any dashboard build command override.
+6. Confirm the start command:
 
 ```bash
 python manage.py migrate && python manage.py collectstatic --noinput && gunicorn site_engineer_system.wsgi:application --bind 0.0.0.0:${PORT:-8000}
 ```
 
-6. Set the healthcheck path to `/api/health/`.
-7. Add the Railway backend environment variables:
+7. Set the healthcheck path to `/api/health/`.
+8. Add the Railway backend environment variables:
 
 ```env
 DEBUG=False
 SECRET_KEY=replace-with-a-real-secret
+PORT=8000
 DB_ENGINE=postgresql
 DATABASE_URL=${{Postgres.DATABASE_URL}}
 ALLOWED_HOSTS=.railway.app,.up.railway.app
@@ -32,14 +34,14 @@ CORS_ALLOWED_ORIGINS=https://your-frontend.vercel.app
 CSRF_TRUSTED_ORIGINS=https://your-frontend.vercel.app,https://your-backend.up.railway.app
 ```
 
-8. Deploy the service.
-9. Open `https://your-backend.up.railway.app/api/health/` and confirm:
+9. Deploy the service.
+10. Open `https://your-backend.up.railway.app/api/health/` and confirm:
 
 ```json
 {"status": "ok"}
 ```
 
-10. Create an admin user from the Railway shell:
+11. Create an admin user from the Railway shell:
 
 ```bash
 python manage.py createsuperuser
@@ -128,7 +130,7 @@ WhiteNoise serves files from `backend/staticfiles`.
 
 ### Railway Healthcheck Fails
 
-Use `/api/health/` as the healthcheck path. It is a lightweight JSON endpoint and avoids admin/session/static-file behavior during startup. Also confirm the service is listening on `0.0.0.0:${PORT:-8000}` and that local files such as `backend/.env` and `backend/db.sqlite3` are not included in the Docker image.
+Use `/api/health/` as the healthcheck path. It is a lightweight JSON endpoint and avoids admin/session/static-file behavior during startup. If the Railway domain target port is set to `8000`, add `PORT=8000` in the service variables so Gunicorn, the public domain, and Railway's healthcheck all use the same port. Also confirm local files such as `backend/.env` and `backend/db.sqlite3` are not included in the Docker image.
 
 ### Admin CSS Missing
 
