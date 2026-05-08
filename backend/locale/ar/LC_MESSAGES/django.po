@@ -1,0 +1,499 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Site Engineer Management System\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-07 00:00+0200\n"
+"PO-Revision-Date: 2026-05-07 00:00+0200\n"
+"Last-Translator: SEMS Team\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Admin"
+msgstr "مسؤول"
+
+msgid "Site Engineer"
+msgstr "مهندس موقع"
+
+msgid "Project Manager"
+msgstr "مدير مشروع"
+
+msgid "Accountant / Finance"
+msgstr "محاسب / مالية"
+
+msgid "Management Viewer"
+msgstr "مطلع إداري"
+
+msgid "English"
+msgstr "الإنجليزية"
+
+msgid "Arabic"
+msgstr "العربية"
+
+msgid "Email is required"
+msgstr "البريد الإلكتروني مطلوب"
+
+msgid "Superuser must have is_staff=True."
+msgstr "يجب أن يكون is_staff=True للمستخدم الخارق."
+
+msgid "Superuser must have is_superuser=True."
+msgstr "يجب أن يكون is_superuser=True للمستخدم الخارق."
+
+msgid "name"
+msgstr "الاسم"
+
+msgid "email"
+msgstr "البريد الإلكتروني"
+
+msgid "role"
+msgstr "الدور"
+
+msgid "preferred language"
+msgstr "اللغة المفضلة"
+
+msgid "active"
+msgstr "نشط"
+
+msgid "staff status"
+msgstr "حالة الموظف"
+
+msgid "user"
+msgstr "مستخدم"
+
+msgid "users"
+msgstr "المستخدمون"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Password confirmation"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Passwords do not match."
+msgstr "كلمتا المرور غير متطابقتين."
+
+msgid "Personal info"
+msgstr "المعلومات الشخصية"
+
+msgid "Permissions"
+msgstr "الصلاحيات"
+
+msgid "Important dates"
+msgstr "تواريخ مهمة"
+
+msgid "Invalid role."
+msgstr "الدور غير صالح."
+
+msgid "Invalid language."
+msgstr "اللغة غير صالحة."
+
+msgid "Invalid email or password."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+
+msgid "User account is inactive."
+msgstr "حساب المستخدم غير نشط."
+
+msgid "Refresh token is required."
+msgstr "رمز التحديث مطلوب."
+
+msgid "Invalid refresh token."
+msgstr "رمز التحديث غير صالح."
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "On hold"
+msgstr "معلق"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Cancelled"
+msgstr "ملغى"
+
+msgid "project"
+msgstr "مشروع"
+
+msgid "projects"
+msgstr "المشاريع"
+
+msgid "project member"
+msgstr "عضو مشروع"
+
+msgid "project members"
+msgstr "أعضاء المشروع"
+
+msgid "cost category"
+msgstr "فئة تكلفة"
+
+msgid "cost categories"
+msgstr "فئات التكلفة"
+
+msgid "Supplier"
+msgstr "مورد"
+
+msgid "Subcontractor"
+msgstr "مقاول باطن"
+
+msgid "Equipment provider"
+msgstr "مزود معدات"
+
+msgid "Labour team"
+msgstr "فريق عمالة"
+
+msgid "Transportation provider"
+msgstr "مزود نقل"
+
+msgid "vendor"
+msgstr "مورد"
+
+msgid "vendors"
+msgstr "الموردون"
+
+msgid "Invalid project status."
+msgstr "حالة المشروع غير صالحة."
+
+msgid "Invalid vendor type."
+msgstr "نوع المورد غير صالح."
+
+msgid "Hr"
+msgstr "ساعة"
+
+msgid "Day"
+msgstr "يوم"
+
+msgid "Month"
+msgstr "شهر"
+
+msgid "Piece"
+msgstr "قطعة"
+
+msgid "KG"
+msgstr "كجم"
+
+msgid "Ton"
+msgstr "طن"
+
+msgid "Liter"
+msgstr "لتر"
+
+msgid "Trip"
+msgstr "رحلة"
+
+msgid "Lump Sum"
+msgstr "مقطوعية"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Unpaid"
+msgstr "غير مدفوع"
+
+msgid "Partially paid"
+msgstr "مدفوع جزئيا"
+
+msgid "Paid"
+msgstr "مدفوع"
+
+msgid "Draft"
+msgstr "مسودة"
+
+msgid "Submitted"
+msgstr "مقدم"
+
+msgid "Approved"
+msgstr "معتمد"
+
+msgid "Rejected"
+msgstr "مرفوض"
+
+msgid "Cash"
+msgstr "نقدا"
+
+msgid "Bank transfer"
+msgstr "تحويل بنكي"
+
+msgid "Cheque"
+msgstr "شيك"
+
+msgid "Card"
+msgstr "بطاقة"
+
+msgid "Down payment"
+msgstr "دفعة مقدمة"
+
+msgid "Client invoice"
+msgstr "فاتورة عميل"
+
+msgid "Advance"
+msgstr "سلفة"
+
+msgid "expense"
+msgstr "مصروف"
+
+msgid "expenses"
+msgstr "المصروفات"
+
+msgid "payment"
+msgstr "دفعة"
+
+msgid "payments"
+msgstr "المدفوعات"
+
+msgid "client payment"
+msgstr "دفعة عميل"
+
+msgid "client payments"
+msgstr "دفعات العملاء"
+
+msgid "Invalid unit."
+msgstr "الوحدة غير صالحة."
+
+msgid "You are not assigned to this project."
+msgstr "أنت غير معين على هذا المشروع."
+
+msgid "Quantity must be greater than zero."
+msgstr "يجب أن تكون الكمية أكبر من صفر."
+
+msgid "Unit rate must be zero or greater."
+msgstr "يجب أن يكون سعر الوحدة صفرا أو أكبر."
+
+msgid "VAT percentage must be between 0 and 100."
+msgstr "يجب أن تكون نسبة الضريبة بين 0 و100."
+
+msgid "Invalid payment method."
+msgstr "طريقة الدفع غير صالحة."
+
+msgid "Expense is required."
+msgstr "المصروف مطلوب."
+
+msgid "Changing the linked expense is not supported."
+msgstr "تغيير المصروف المرتبط غير مدعوم."
+
+msgid "Payment amount must be greater than zero."
+msgstr "يجب أن يكون مبلغ الدفعة أكبر من صفر."
+
+msgid "Cannot pay draft or rejected expense."
+msgstr "لا يمكن دفع مصروف في حالة مسودة أو مرفوض."
+
+msgid "Only approved expenses can be paid."
+msgstr "يمكن دفع المصروفات المعتمدة فقط."
+
+msgid "Payment exceeds the pending amount."
+msgstr "الدفعة تتجاوز المبلغ المتبقي."
+
+msgid "Invalid cash-in payment type."
+msgstr "نوع الإيراد غير صالح."
+
+msgid "Project is required."
+msgstr "المشروع مطلوب."
+
+msgid "Amount must be greater than zero."
+msgstr "يجب أن يكون المبلغ أكبر من صفر."
+
+msgid "Only draft or rejected expenses can be submitted."
+msgstr "يمكن إرسال المصروفات المسودة أو المرفوضة فقط."
+
+msgid "Only submitted expenses can be approved."
+msgstr "يمكن اعتماد المصروفات المقدمة فقط."
+
+msgid "Only submitted expenses can be rejected."
+msgstr "يمكن رفض المصروفات المقدمة فقط."
+
+msgid "Rejection reason is required."
+msgstr "سبب الرفض مطلوب."
+
+msgid "Payment %(amount)s"
+msgstr "دفعة %(amount)s"
+
+msgid "Only site engineers or admins can create expenses."
+msgstr "يمكن لمهندسي الموقع أو المسؤولين فقط إنشاء المصروفات."
+
+msgid "Management viewers have read-only access."
+msgstr "المطلعون الإداريون لديهم صلاحية قراءة فقط."
+
+msgid "Approved expenses cannot be edited by non-admin users."
+msgstr "لا يمكن لغير المسؤولين تعديل المصروفات المعتمدة."
+
+msgid "Only the creator or admin can submit this expense."
+msgstr "يمكن لمنشئ المصروف أو المسؤول فقط إرسال هذا المصروف."
+
+msgid "Only project managers or admins can approve expenses."
+msgstr "يمكن لمديري المشاريع أو المسؤولين فقط اعتماد المصروفات."
+
+msgid "Only project managers or admins can reject expenses."
+msgstr "يمكن لمديري المشاريع أو المسؤولين فقط رفض المصروفات."
+
+msgid "Only accountant/finance or admin can create payments."
+msgstr "يمكن للمحاسب/المالية أو المسؤول فقط إنشاء الدفعات."
+
+msgid "Only accountant/finance or admin can update payments."
+msgstr "يمكن للمحاسب/المالية أو المسؤول فقط تحديث الدفعات."
+
+msgid "Only accountant/finance or admin can delete payments."
+msgstr "يمكن للمحاسب/المالية أو المسؤول فقط حذف الدفعات."
+
+msgid "Only accountant/finance or admin can create cash-in records."
+msgstr "يمكن للمحاسب/المالية أو المسؤول فقط إنشاء سجلات الإيرادات."
+
+msgid "Only accountant/finance or admin can update cash-in records."
+msgstr "يمكن للمحاسب/المالية أو المسؤول فقط تحديث سجلات الإيرادات."
+
+msgid "Only admin can assign project members."
+msgstr "يمكن للمسؤول فقط تعيين أعضاء المشاريع."
+
+msgid "Only admin can update project members."
+msgstr "يمكن للمسؤول فقط تحديث أعضاء المشاريع."
+
+msgid "Only admin can remove project members."
+msgstr "يمكن للمسؤول فقط إزالة أعضاء المشاريع."
+
+msgid "Created"
+msgstr "تم الإنشاء"
+
+msgid "Updated"
+msgstr "تم التحديث"
+
+msgid "Payment added"
+msgstr "تمت إضافة دفعة"
+
+msgid "approval log"
+msgstr "سجل اعتماد"
+
+msgid "approval logs"
+msgstr "سجلات الاعتماد"
+
+msgid "Expense"
+msgstr "مصروف"
+
+msgid "Payment"
+msgstr "دفعة"
+
+msgid "Cash in"
+msgstr "إيراد"
+
+msgid "attachment"
+msgstr "مرفق"
+
+msgid "attachments"
+msgstr "المرفقات"
+
+msgid "File type is not allowed."
+msgstr "نوع الملف غير مسموح."
+
+msgid "File size exceeds %(size)s MB."
+msgstr "حجم الملف يتجاوز %(size)s ميجابايت."
+
+msgid "Invalid related type."
+msgstr "نوع الارتباط غير صالح."
+
+msgid "You are not assigned to the related record project."
+msgstr "أنت غير معين على مشروع السجل المرتبط."
+
+msgid "Project Summary"
+msgstr "ملخص المشروع"
+
+msgid "Monthly Cost Report"
+msgstr "تقرير التكلفة الشهرية"
+
+msgid "Category Cost Report"
+msgstr "تقرير تكلفة الفئات"
+
+msgid "Vendor Statement"
+msgstr "كشف المورد"
+
+msgid "Pending Payments Report"
+msgstr "تقرير المدفوعات المتبقية"
+
+msgid "Cash Flow Report"
+msgstr "تقرير التدفق النقدي"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Balance"
+msgstr "الرصيد"
+
+msgid "Cash Balance"
+msgstr "رصيد النقدية"
+
+msgid "Cash In"
+msgstr "الإيرادات"
+
+msgid "Cash Out"
+msgstr "المصروفات"
+
+msgid "Category"
+msgstr "الفئة"
+
+msgid "Category Breakdown"
+msgstr "تفصيل الفئات"
+
+msgid "Client"
+msgstr "العميل"
+
+msgid "Code"
+msgstr "الكود"
+
+msgid "Days Pending"
+msgstr "أيام الانتظار"
+
+msgid "Expense Count"
+msgstr "عدد المصروفات"
+
+msgid "Expense Date"
+msgstr "تاريخ المصروف"
+
+msgid "Expense ID"
+msgstr "معرف المصروف"
+
+msgid "Expenses"
+msgstr "المصروفات"
+
+msgid "Project"
+msgstr "المشروع"
+
+msgid "Project ID"
+msgstr "معرف المشروع"
+
+msgid "Project Cost Gap"
+msgstr "فارق تكلفة المشروع"
+
+msgid "Payment Status"
+msgstr "حالة الدفع"
+
+msgid "Pending"
+msgstr "المتبقي"
+
+msgid "Percentage of Total Cost"
+msgstr "النسبة من إجمالي التكلفة"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Total"
+msgstr "الإجمالي"
+
+msgid "Total Cash In"
+msgstr "إجمالي الإيرادات"
+
+msgid "Total Cash Out"
+msgstr "إجمالي المصروفات"
+
+msgid "Total Paid"
+msgstr "إجمالي المدفوع"
+
+msgid "Total Pending"
+msgstr "إجمالي المتبقي"
+
+msgid "Vendor"
+msgstr "المورد"
+
+msgid "Vendor ID"
+msgstr "معرف المورد"
+
+msgid "No data"
+msgstr "لا توجد بيانات"

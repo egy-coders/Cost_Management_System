@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #f4f5f7;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #111827;
+}
+
+::selection {
+  background: rgba(163, 15, 23, 0.16);
+}
+
+img {
+  max-width: 100%;
+}
+
+[dir="rtl"] body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.table-scroll {
+  scrollbar-width: thin;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="password"],
+[dir="rtl"] input[type="url"] {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="rtl"] input[type="date"],
+[dir="rtl"] input[type="month"],
+[dir="rtl"] input[type="number"] {
+  direction: ltr;
+}

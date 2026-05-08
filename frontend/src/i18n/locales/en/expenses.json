@@ -1,0 +1,23 @@
+{
+  "title": "Expenses",
+  "subtitle": "Track site costs, VAT, approval, payment status, and pending balances.",
+  "add": "Add Expense",
+  "edit": "Edit Expense",
+  "save": "Save Expense",
+  "register": "Expense Register",
+  "filters": "Filters",
+  "select_category": "Select category",
+  "select_project": "Select project",
+  "select_vendor": "Select vendor",
+  "search_placeholder": "Description, vendor...",
+  "backend_recalculates": "Backend recalculates all amount fields on save.",
+  "financial_summary": "Financial Summary",
+  "upload_attachment": "Upload Attachment",
+  "approval_history": "Approval History",
+  "attachments": "Attachments",
+  "payment_history": "Payment History",
+  "add_payment": "Add Payment",
+  "reject_expense": "Reject Expense",
+  "rejection_reason_placeholder": "Rejection reason",
+  "no_vendor": "No vendor"
+}

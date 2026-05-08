@@ -1,0 +1,9 @@
+{
+  "title": "Payments",
+  "subtitle": "Record supplier and subcontractor payments against approved expenses.",
+  "add": "Add Payment",
+  "record": "Record Payment",
+  "register": "Payment Register",
+  "select_approved_expense": "Select approved expense",
+  "pending_option": "pending {{amount}}"
+}

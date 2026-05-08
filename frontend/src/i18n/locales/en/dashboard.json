@@ -1,0 +1,26 @@
+{
+  "title": "Dashboard",
+  "subtitle": "Live project financial overview",
+  "all_projects": "All projects",
+  "kpis": {
+    "approved": "Approved",
+    "cash_balance": "Cash Balance",
+    "expenses": "Expenses",
+    "project_cost_gap": "Project Cost Gap",
+    "rejected": "Rejected",
+    "submitted": "Submitted",
+    "total_cash_in": "Total Cash In",
+    "total_cash_out": "Total Cash Out",
+    "total_paid": "Total Paid",
+    "total_pending": "Total Pending"
+  },
+  "charts": {
+    "approval_status": "Expenses by Approval Status",
+    "cash_in_vs_cash_out": "Cash In vs Cash Out",
+    "category_cost": "Expenses by Category",
+    "monthly_expense_trend": "Monthly Expense Trend",
+    "paid_vs_pending": "Paid vs Pending",
+    "payment_status": "Expenses by Payment Status",
+    "top_vendors": "Top Vendors by Cost"
+  }
+}

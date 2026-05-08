@@ -1,0 +1,8 @@
+{
+  "required": "هذا الحقل مطلوب",
+  "invalid_email": "البريد الإلكتروني غير صالح",
+  "amount_positive": "يجب أن يكون المبلغ أكبر من صفر",
+  "unauthorized": "غير مصرح",
+  "expense_not_found": "المصروف غير موجود",
+  "payment_exceeds_pending": "الدفعة تتجاوز المبلغ المتبقي"
+}

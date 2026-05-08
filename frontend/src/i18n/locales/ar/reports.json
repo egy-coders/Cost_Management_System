@@ -1,0 +1,43 @@
+{
+  "title": "التقارير",
+  "subtitle": "ملخصات من قاعدة البيانات مع تصدير Excel و PDF.",
+  "filters": "فلاتر التقرير",
+  "options": {
+    "cash-flow": "تقرير التدفق النقدي",
+    "category-cost": "تقرير تكلفة الفئات",
+    "monthly-cost": "تقرير التكلفة الشهرية",
+    "pending-payments": "تقرير المدفوعات المتبقية",
+    "project-summary": "ملخص المشروع",
+    "vendor-statement": "كشف المورد"
+  },
+  "headers": {
+    "amount": "المبلغ",
+    "balance": "الرصيد",
+    "cash_in": "الإيرادات",
+    "cash_out": "المصروفات",
+    "category__name": "الفئة",
+    "category_breakdown": "تفصيل الفئات",
+    "client_name": "العميل",
+    "code": "الكود",
+    "days_pending": "أيام الانتظار",
+    "expense": "المصروف",
+    "expense_count": "عدد المصروفات",
+    "expense_date": "تاريخ المصروف",
+    "expense_id": "معرف المصروف",
+    "expenses": "المصروفات",
+    "id": "المعرف",
+    "month": "الشهر",
+    "paid": "المدفوع",
+    "payment_status": "حالة الدفع",
+    "pending": "المتبقي",
+    "percentage_of_total_cost": "النسبة من إجمالي التكلفة",
+    "project": "المشروع",
+    "project__name": "المشروع",
+    "project_id": "معرف المشروع",
+    "status": "الحالة",
+    "total": "الإجمالي",
+    "vendor": "المورد",
+    "vendor__name": "المورد",
+    "vendor_id": "معرف المورد"
+  }
+}

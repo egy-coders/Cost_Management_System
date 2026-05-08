@@ -1,0 +1,12 @@
+{
+  "title": "Projects",
+  "subtitle": "Manage project master records and status.",
+  "add": "Add Project",
+  "edit": "Edit Project",
+  "create": "Create Project",
+  "update": "Update Project",
+  "list": "Project List",
+  "select_project": "Select project",
+  "related_expenses": "Related Expenses",
+  "monthly_cost": "Monthly Cost"
+}

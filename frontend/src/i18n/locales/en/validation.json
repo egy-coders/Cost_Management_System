@@ -1,0 +1,8 @@
+{
+  "required": "Required field",
+  "invalid_email": "Invalid email",
+  "amount_positive": "Amount must be greater than zero",
+  "unauthorized": "Unauthorized",
+  "expense_not_found": "Expense not found",
+  "payment_exceeds_pending": "Payment exceeds pending amount"
+}

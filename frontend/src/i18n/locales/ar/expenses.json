@@ -1,0 +1,23 @@
+{
+  "title": "المصروفات",
+  "subtitle": "متابعة تكاليف الموقع والضريبة والاعتماد وحالة الدفع والأرصدة المتبقية.",
+  "add": "إضافة مصروف",
+  "edit": "تعديل مصروف",
+  "save": "حفظ المصروف",
+  "register": "سجل المصروفات",
+  "filters": "الفلاتر",
+  "select_category": "اختر الفئة",
+  "select_project": "اختر المشروع",
+  "select_vendor": "اختر المورد",
+  "search_placeholder": "الوصف، المورد...",
+  "backend_recalculates": "يعيد الخادم حساب كل مبالغ المصروف عند الحفظ.",
+  "financial_summary": "الملخص المالي",
+  "upload_attachment": "رفع مرفق",
+  "approval_history": "سجل الاعتماد",
+  "attachments": "المرفقات",
+  "payment_history": "سجل المدفوعات",
+  "add_payment": "إضافة دفعة",
+  "reject_expense": "رفض المصروف",
+  "rejection_reason_placeholder": "سبب الرفض",
+  "no_vendor": "بدون مورد"
+}

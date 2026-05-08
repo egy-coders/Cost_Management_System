@@ -1,0 +1,26 @@
+{
+  "title": "لوحة التحكم",
+  "subtitle": "نظرة مالية مباشرة على المشاريع",
+  "all_projects": "كل المشاريع",
+  "kpis": {
+    "approved": "المعتمد",
+    "cash_balance": "رصيد النقدية",
+    "expenses": "المصروفات",
+    "project_cost_gap": "فارق تكلفة المشروع",
+    "rejected": "المرفوض",
+    "submitted": "المقدم",
+    "total_cash_in": "إجمالي الإيرادات",
+    "total_cash_out": "إجمالي المصروفات",
+    "total_paid": "إجمالي المدفوع",
+    "total_pending": "إجمالي المتبقي"
+  },
+  "charts": {
+    "approval_status": "المصروفات حسب حالة الاعتماد",
+    "cash_in_vs_cash_out": "الإيرادات مقابل المصروفات",
+    "category_cost": "المصروفات حسب الفئة",
+    "monthly_expense_trend": "اتجاه المصروفات الشهرية",
+    "paid_vs_pending": "المدفوع مقابل المتبقي",
+    "payment_status": "المصروفات حسب حالة الدفع",
+    "top_vendors": "أعلى الموردين تكلفة"
+  }
+}

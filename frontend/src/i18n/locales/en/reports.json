@@ -1,0 +1,43 @@
+{
+  "title": "Reports",
+  "subtitle": "Database-backed summaries with Excel and PDF export.",
+  "filters": "Report Filters",
+  "options": {
+    "cash-flow": "Cash Flow Report",
+    "category-cost": "Category Cost Report",
+    "monthly-cost": "Monthly Cost Report",
+    "pending-payments": "Pending Payments Report",
+    "project-summary": "Project Summary",
+    "vendor-statement": "Vendor Statement"
+  },
+  "headers": {
+    "amount": "Amount",
+    "balance": "Balance",
+    "cash_in": "Cash In",
+    "cash_out": "Cash Out",
+    "category__name": "Category",
+    "category_breakdown": "Category Breakdown",
+    "client_name": "Client",
+    "code": "Code",
+    "days_pending": "Days Pending",
+    "expense": "Expense",
+    "expense_count": "Expense Count",
+    "expense_date": "Expense Date",
+    "expense_id": "Expense ID",
+    "expenses": "Expenses",
+    "id": "ID",
+    "month": "Month",
+    "paid": "Paid",
+    "payment_status": "Payment Status",
+    "pending": "Pending",
+    "percentage_of_total_cost": "Percentage of Total Cost",
+    "project": "Project",
+    "project__name": "Project",
+    "project_id": "Project ID",
+    "status": "Status",
+    "total": "Total",
+    "vendor": "Vendor",
+    "vendor__name": "Vendor",
+    "vendor_id": "Vendor ID"
+  }
+}

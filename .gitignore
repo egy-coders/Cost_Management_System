@@ -1,0 +1,40 @@
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Python
+*.py[cod]
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Django/runtime data
+backend/media/
+backend/staticfiles/
+db.sqlite3
+*.sqlite3
+
+# Frontend dependencies/build output
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+frontend/vite-dev*.log
+
+# Local/container data
+postgres_data/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

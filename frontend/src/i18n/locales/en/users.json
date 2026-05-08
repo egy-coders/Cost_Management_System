@@ -1,0 +1,8 @@
+{
+  "title": "Users",
+  "subtitle": "Admin-only user and role management.",
+  "create": "Create User",
+  "edit": "Edit User",
+  "update": "Update User",
+  "list": "User List"
+}
