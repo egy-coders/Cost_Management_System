@@ -16,29 +16,30 @@ This project is prepared for user-testing deployment with:
 5. Confirm the start command:
 
 ```bash
-python manage.py migrate && python manage.py collectstatic --noinput && gunicorn site_engineer_system.wsgi:application --bind 0.0.0.0:$PORT
+python manage.py migrate && python manage.py collectstatic --noinput && gunicorn site_engineer_system.wsgi:application --bind 0.0.0.0:${PORT:-8000}
 ```
 
-6. Add the Railway backend environment variables:
+6. Set the healthcheck path to `/api/health/`.
+7. Add the Railway backend environment variables:
 
 ```env
 DEBUG=False
 SECRET_KEY=replace-with-a-real-secret
 DB_ENGINE=postgresql
 DATABASE_URL=${{Postgres.DATABASE_URL}}
-ALLOWED_HOSTS=.railway.app
+ALLOWED_HOSTS=.railway.app,.up.railway.app
 CORS_ALLOWED_ORIGINS=https://your-frontend.vercel.app
 CSRF_TRUSTED_ORIGINS=https://your-frontend.vercel.app,https://your-backend.up.railway.app
 ```
 
-7. Deploy the service.
-8. Open `https://your-backend.up.railway.app/api/health/` and confirm:
+8. Deploy the service.
+9. Open `https://your-backend.up.railway.app/api/health/` and confirm:
 
 ```json
 {"status": "ok"}
 ```
 
-9. Create an admin user from the Railway shell:
+10. Create an admin user from the Railway shell:
 
 ```bash
 python manage.py createsuperuser
@@ -124,6 +125,10 @@ python manage.py collectstatic --noinput
 ```
 
 WhiteNoise serves files from `backend/staticfiles`.
+
+### Railway Healthcheck Fails
+
+Use `/api/health/` as the healthcheck path. It is a lightweight JSON endpoint and avoids admin/session/static-file behavior during startup. Also confirm the service is listening on `0.0.0.0:${PORT:-8000}` and that local files such as `backend/.env` and `backend/db.sqlite3` are not included in the Docker image.
 
 ### Admin CSS Missing
 

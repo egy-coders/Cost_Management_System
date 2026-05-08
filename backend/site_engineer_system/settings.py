@@ -22,7 +22,7 @@ def load_env_file(path, override=False):
 
 
 load_env_file(BASE_DIR.parent / ".env")
-load_env_file(BASE_DIR / ".env", override=True)
+load_env_file(BASE_DIR / ".env")
 
 
 def env_bool(name, default=False):
@@ -84,8 +84,14 @@ def build_database_config():
 
 
 SECRET_KEY = first_env("DJANGO_SECRET_KEY", "SECRET_KEY", default="dev-only-change-me")
-DEBUG = env_bool("DJANGO_DEBUG", env_bool("DEBUG", True))
-ALLOWED_HOSTS = csv_list(first_env("DJANGO_ALLOWED_HOSTS", "ALLOWED_HOSTS", default="localhost,127.0.0.1,backend"))
+DEBUG = env_bool("DJANGO_DEBUG", env_bool("DEBUG", False))
+ALLOWED_HOSTS = csv_list(
+    first_env(
+        "DJANGO_ALLOWED_HOSTS",
+        "ALLOWED_HOSTS",
+        default="localhost,127.0.0.1,backend,.railway.app,.up.railway.app",
+    )
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
