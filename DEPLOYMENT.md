@@ -17,11 +17,17 @@ This project is prepared for user-testing deployment with:
 6. Confirm the start command:
 
 ```bash
-python manage.py migrate && python manage.py collectstatic --noinput && gunicorn site_engineer_system.wsgi:application --bind 0.0.0.0:${PORT:-8000}
+gunicorn site_engineer_system.wsgi:application --bind 0.0.0.0:${PORT:-8000}
 ```
 
-7. Set the healthcheck path to `/api/health/`.
-8. Add the Railway backend environment variables:
+7. Confirm the pre-deploy command:
+
+```bash
+python manage.py migrate
+```
+
+8. Set the healthcheck path to `/api/health/`.
+9. Add the Railway backend environment variables:
 
 ```env
 DEBUG=False
@@ -34,14 +40,14 @@ CORS_ALLOWED_ORIGINS=https://your-frontend.vercel.app
 CSRF_TRUSTED_ORIGINS=https://your-frontend.vercel.app,https://your-backend.up.railway.app
 ```
 
-9. Deploy the service.
-10. Open `https://your-backend.up.railway.app/api/health/` and confirm:
+10. Deploy the service.
+11. Open `https://your-backend.up.railway.app/api/health/` and confirm:
 
 ```json
 {"status": "ok"}
 ```
 
-11. Create an admin user from the Railway shell:
+12. Create an admin user from the Railway shell:
 
 ```bash
 python manage.py createsuperuser
@@ -120,17 +126,17 @@ CSRF_TRUSTED_ORIGINS=https://your-frontend.vercel.app,https://your-backend.up.ra
 
 ### Static Files Missing
 
-Confirm the Railway start command includes:
+Static files are collected during the Docker image build:
 
 ```bash
-python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 ```
 
 WhiteNoise serves files from `backend/staticfiles`.
 
 ### Railway Healthcheck Fails
 
-Use `/api/health/` as the healthcheck path. It is a lightweight JSON endpoint and avoids admin/session/static-file behavior during startup. If the Railway domain target port is set to `8000`, add `PORT=8000` in the service variables so Gunicorn, the public domain, and Railway's healthcheck all use the same port. Also confirm local files such as `backend/.env` and `backend/db.sqlite3` are not included in the Docker image.
+Use `/api/health/` as the healthcheck path. It is a lightweight JSON endpoint and avoids admin/session/static-file behavior during startup. Keep migrations in `preDeployCommand` and keep the start command to Gunicorn only, so the web server binds its port immediately during the healthcheck window. If the Railway domain target port is set to `8000`, add `PORT=8000` in the service variables so Gunicorn, the public domain, and Railway's healthcheck all use the same port. Also confirm local files such as `backend/.env` and `backend/db.sqlite3` are not included in the Docker image.
 
 ### Admin CSS Missing
 
@@ -142,7 +148,7 @@ Confirm `frontend/vercel.json` exists and includes the SPA rewrite to `/index.ht
 
 ### Database Migration Not Applied
 
-The Railway start command runs:
+The Railway pre-deploy command runs:
 
 ```bash
 python manage.py migrate
