@@ -17,13 +17,13 @@ This project is prepared for user-testing deployment with:
 6. Confirm the start command:
 
 ```bash
-gunicorn site_engineer_system.wsgi:application --bind 0.0.0.0:${PORT:-8000}
+python railway_start.py
 ```
 
 7. Confirm the pre-deploy command:
 
 ```bash
-python manage.py migrate
+python railway_predeploy.py
 ```
 
 8. Set the healthcheck path to `/api/health/`.
@@ -126,10 +126,10 @@ CSRF_TRUSTED_ORIGINS=https://your-frontend.vercel.app,https://your-backend.up.ra
 
 ### Static Files Missing
 
-Static files are collected during the Docker image build:
+Static files are collected during Railway pre-deploy:
 
 ```bash
-RUN python manage.py collectstatic --noinput
+python railway_predeploy.py
 ```
 
 WhiteNoise serves files from `backend/staticfiles`.
@@ -148,10 +148,10 @@ Confirm `frontend/vercel.json` exists and includes the SPA rewrite to `/index.ht
 
 ### Database Migration Not Applied
 
-The Railway pre-deploy command runs:
+The Railway pre-deploy command runs migrations and static collection:
 
 ```bash
-python manage.py migrate
+python railway_predeploy.py
 ```
 
 If a deploy started before the database was attached, redeploy after `DATABASE_URL` is available.
