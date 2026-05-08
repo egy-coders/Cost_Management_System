@@ -48,6 +48,62 @@ docker compose up --build
 
 The backend container runs migrations and seeds Phase 1 sample data on startup.
 
+## Deployment for User Testing
+
+Architecture:
+
+- Backend on Railway
+- PostgreSQL on Railway
+- Frontend on Vercel
+- Local SQLite remains supported for development
+- Existing Docker/PostgreSQL files remain available for later local or staging use
+
+Railway backend setup:
+
+1. Create a Railway project.
+2. Add a Railway PostgreSQL database.
+3. Add a backend service from the GitHub repository.
+4. Set the Railway service root directory to `/backend`.
+5. Add the backend environment variables below.
+6. Deploy the service. The start command runs migrations, collects static files, and starts Gunicorn.
+7. Confirm `/api/health/` returns `{"status":"ok"}`.
+8. Create a superuser from the Railway shell if needed:
+
+```bash
+python manage.py createsuperuser
+```
+
+Backend variables:
+
+```env
+DEBUG=False
+SECRET_KEY=
+DB_ENGINE=postgresql
+DATABASE_URL=${{Postgres.DATABASE_URL}}
+ALLOWED_HOSTS=.railway.app
+CORS_ALLOWED_ORIGINS=https://your-frontend.vercel.app
+CSRF_TRUSTED_ORIGINS=https://your-frontend.vercel.app,https://your-backend.up.railway.app
+```
+
+Vercel frontend setup:
+
+1. Import the GitHub repository in Vercel.
+2. Set the Vercel project root directory to `/frontend`.
+3. Use framework preset `Vite`.
+4. Set build command to `npm run build`.
+5. Set output directory to `dist`.
+6. Add this environment variable:
+
+```env
+VITE_API_BASE_URL=https://your-backend.up.railway.app/api
+```
+
+Local dev reminder:
+
+- Backend local development uses SQLite with `backend/.env.local.example`.
+- Frontend local development uses `frontend/.env.local.example`.
+- For user testing, replace the placeholder Railway and Vercel URLs in the environment variables with the deployed domains.
+
 ## Run Locally with SQLite
 
 This setup is for quick development without Docker or PostgreSQL. It keeps the Docker/PostgreSQL setup intact for staging and production.

@@ -1,7 +1,8 @@
 from datetime import timedelta
 import os
 from pathlib import Path
-from urllib.parse import urlparse
+
+import dj_database_url
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,11 +29,11 @@ def env_bool(name, default=False):
     value = os.getenv(name)
     if value is None:
         return default
-    return value.lower() in {"1", "true", "yes", "on"}
+    return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
 def env_list(name, default=""):
-    return [item.strip() for item in os.getenv(name, default).split(",") if item.strip()]
+    return csv_list(os.getenv(name, default))
 
 
 def csv_list(value):
@@ -47,34 +48,25 @@ def first_env(*names, default=None):
     return default
 
 
-def database_from_url(database_url):
-    parsed = urlparse(database_url)
-    if parsed.scheme in {"postgres", "postgresql"}:
-        return {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": parsed.path.lstrip("/"),
-            "USER": parsed.username or "",
-            "PASSWORD": parsed.password or "",
-            "HOST": parsed.hostname or "",
-            "PORT": str(parsed.port or 5432),
-        }
-    if parsed.scheme == "sqlite":
-        db_path = parsed.path or "db.sqlite3"
-        if db_path.startswith("/") and len(db_path) > 1 and db_path[2:3] == ":":
-            db_path = db_path[1:]
-        return {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": db_path if db_path == ":memory:" else str(Path(db_path)),
-        }
-    raise ValueError("Unsupported DATABASE_URL scheme.")
+def sqlite_database_config():
+    return {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 
 
 def build_database_config():
     database_url = os.getenv("DATABASE_URL")
     if database_url:
-        return database_from_url(database_url)
+        return dj_database_url.parse(
+            database_url,
+            conn_max_age=int(os.getenv("DB_CONN_MAX_AGE", "600")),
+        )
 
-    explicit_engine = os.getenv("DB_ENGINE", "").lower()
+    explicit_engine = os.getenv("DB_ENGINE", "").strip().lower()
+    if explicit_engine in {"sqlite", "sqlite3"}:
+        return sqlite_database_config()
+
     legacy_postgres_env_present = any(os.getenv(name) for name in ["POSTGRES_DB", "POSTGRES_USER", "POSTGRES_HOST"])
     use_postgres = explicit_engine in {"postgres", "postgresql"} or (not explicit_engine and legacy_postgres_env_present)
 
@@ -88,10 +80,7 @@ def build_database_config():
             "PORT": first_env("DB_PORT", "POSTGRES_PORT", default="5432"),
         }
 
-    return {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    return sqlite_database_config()
 
 
 SECRET_KEY = first_env("DJANGO_SECRET_KEY", "SECRET_KEY", default="dev-only-change-me")
@@ -119,8 +108,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -170,8 +160,9 @@ TIME_ZONE = os.getenv("TIME_ZONE", "Africa/Cairo")
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
@@ -183,6 +174,14 @@ CORS_ALLOWED_ORIGINS = env_list(
     "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://127.0.0.1:3000",
 )
 CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS")
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = env_bool("SECURE_SSL_REDIRECT", False)
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

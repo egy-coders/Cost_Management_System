@@ -3,11 +3,15 @@ import i18n from "../i18n";
 import { formatCurrency, humanizeEnum } from "../i18n/format";
 import type { Paginated } from "../types";
 
-const RAW_API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
-const API_BASE_URL = RAW_API_BASE_URL.endsWith("/api") ? RAW_API_BASE_URL.slice(0, -4) : RAW_API_BASE_URL;
+function normalizeApiBaseUrl(value?: string) {
+  const raw = (value || "http://127.0.0.1:8000/api").replace(/\/+$/, "");
+  return raw.endsWith("/api") ? raw : `${raw}/api`;
+}
+
+export const API_BASE_URL = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL);
 
 export const api = axios.create({
-  baseURL: `${API_BASE_URL}/api`
+  baseURL: API_BASE_URL
 });
 
 api.interceptors.request.use((config) => {
@@ -28,7 +32,7 @@ api.interceptors.response.use(
       const refresh = localStorage.getItem("refreshToken");
       if (refresh) {
         try {
-          const response = await axios.post(`${API_BASE_URL}/api/auth/refresh/`, { refresh });
+          const response = await axios.post(`${API_BASE_URL}/auth/refresh/`, { refresh });
           localStorage.setItem("accessToken", response.data.access);
           if (response.data.refresh) {
             localStorage.setItem("refreshToken", response.data.refresh);
